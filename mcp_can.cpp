@@ -712,7 +712,7 @@ byte MCP_CAN::init_Mask(byte num, unsigned long ulData)
     if ( res > MCP2515_OK )
         return res;
 
-    if ( (num & 0x80000000) == 0x80000000 )
+    if ( (ulData & 0x80000000) == 0x80000000 )
         ext = 1;
 
     switch ( num ) {
@@ -782,7 +782,7 @@ byte MCP_CAN::init_Filt(byte num, unsigned long ulData)
     if ( res > MCP2515_OK )
         return res;
 
-    if ( (num & 0x80000000) == 0x80000000 )
+    if ( (ulData & 0x80000000) == 0x80000000 )
         ext = 1;
 
     switch ( num ) {
