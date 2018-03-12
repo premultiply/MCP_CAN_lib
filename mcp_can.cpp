@@ -823,7 +823,7 @@ byte MCP_CAN::setMsg(unsigned long id, byte rtr, byte ext, byte len, byte *pData
     m_nRtr    = rtr;
     m_nExtFlg = ext;
     m_nDlc    = len;
-    for ( i = 0; i < MAX_CHAR_IN_MESSAGE; i++ )
+    for ( i = 0; i < m_nDlc; i++ )
         m_nDta[i] = *(pData+i);
 
     return MCP2515_OK;
@@ -840,7 +840,7 @@ byte MCP_CAN::clearMsg()
     m_nExtFlg   = 0;
     m_nRtr      = 0;
     m_nfilhit   = 0;
-    for ( int i = 0; i < m_nDlc; i++ )
+    for ( int i = 0; i < MAX_CHAR_IN_MESSAGE; i++ )
         m_nDta[i] = 0x00;
 
     return MCP2515_OK;
